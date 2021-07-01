@@ -27,9 +27,8 @@ override:
 
 ## Architecture overview
 
-After start, application will listen on output of `docker stats` command of docker.
-
-Depending on containers resources consumption application can stop containers -
+After start, application will execute docker stats once per minute (debatable) and
+depending on containers resources consumption application can stop containers -
 
 if container breaches specified limit (in override or defaults section) - container will be stopped.
 if overall memory consumption will breach limit (in override or defaults section) - top container by memory consumption will be stopped.
