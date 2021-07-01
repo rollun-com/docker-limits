@@ -1,0 +1,3 @@
+defaults:
+  vm:
+    max-memory: 95%
