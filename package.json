@@ -1,0 +1,25 @@
+{
+  "name": "docker-limits",
+  "version": "1.0.0",
+  "description": "Simple application that monitors docker containers, and enforces resources limits",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rollun-com/docker-limits.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rollun-com/docker-limits/issues"
+  },
+  "homepage": "https://github.com/rollun-com/docker-limits#readme",
+  "dependencies": {
+    "bytes": "^3.1.0",
+    "js-yaml": "^4.1.0",
+    "node-docker-monitor": "^1.0.11"
+  }
+}

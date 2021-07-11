@@ -1,3 +1,7 @@
 defaults:
-  vm:
-    max-memory: 95%
+  services:
+    max-memory: 1gb
+override:
+  services:
+    accounting-v3:
+      max-memory: 128mb
