@@ -22,3 +22,7 @@ override:
 ## Architecture overview
 
 Application watches containers, after container start, it will attach resources limitations on a container.
+
+## TODO
+
+Add auto-deploy
