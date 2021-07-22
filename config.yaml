@@ -4,4 +4,6 @@ defaults:
 override:
   services:
     accounting-v3:
-      max-memory: 128mb
+      max-memory: 512mb
+    test:
+      max-memeory: 64mb
