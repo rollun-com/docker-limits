@@ -4,7 +4,7 @@ const monitor = require('node-docker-monitor');
 const bytes = require('bytes');
 const path = require('path');
 
-const configPath = path.join(__dirname, './config.yaml');
+const configPath = path.join(__dirname, 'config.yaml');
 
 let config;
 
