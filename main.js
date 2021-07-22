@@ -27,7 +27,11 @@ async function updateResourcesLimits(id, docker, limits) {
   console.log('update', id, limits);
 
   const maxMemory = bytes(limits['max-memory']);
-  await docker.getContainer(id).update({ Memory: maxMemory, MemorySwap: maxMemory });
+  try {
+    await docker.getContainer(id).update({ Memory: maxMemory, MemorySwap: maxMemory });
+  } catch (e) {
+    console.warn('Unable to update container memory', e);
+  }
 }
 
 async function handleContainerStart({ Id, Names }, docker) {
