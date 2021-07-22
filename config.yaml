@@ -6,4 +6,4 @@ override:
     accounting-v3:
       max-memory: 512mb
     test:
-      max-memeory: 64mb
+      max-memory: 64mb
