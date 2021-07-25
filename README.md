@@ -43,9 +43,6 @@ repo contains install & update scripts
 - install.sh - will create systemd service, enable it to run on startup and starts it
 - update.sh - fetches the latest update from repository and restarts service
 
-IMPORTANT: after you first installed service, you can delete original directory with service.
-update script must be run from directory, where service is installed by 
-
 to install service run
 ```shell
 curl -s https://raw.githubusercontent.com/rollun-com/docker-limits/master/install.sh | bash
