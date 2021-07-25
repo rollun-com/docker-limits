@@ -7,7 +7,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=root
-ExecStart=node /usr/lib/docker-limits/main.js
+ExecStart=/usr/bin/node /usr/lib/docker-limits/main.js
 
 [Install]
 WantedBy=multi-user.target
