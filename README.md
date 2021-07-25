@@ -46,9 +46,14 @@ repo contains install & update scripts
 IMPORTANT: after you first installed service, you can delete original directory with service.
 update script must be run from directory, where service is installed by 
 
-install directly from git repo
+to install service run
+```shell
+curl -s https://raw.githubusercontent.com/rollun-com/docker-limits/master/install.sh | bash
 ```
-curl -s http://127.0.0.1:8080/install.sh | bash
+
+to update service run
+```shell
+curl -s https://raw.githubusercontent.com/rollun-com/docker-limits/master/update.sh | bash
 ```
 
 ## TODO
