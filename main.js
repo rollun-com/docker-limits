@@ -2,17 +2,20 @@ const yaml = require('js-yaml');
 const fs = require('fs/promises');
 const monitor = require('node-docker-monitor');
 const bytes = require('bytes');
+const path = require('path');
+
+const configPath = path.join(__dirname, 'config.yaml');
 
 let config;
 
 async function setupConfig() {
   const loadConfig = async () => {
-    config = yaml.load(await fs.readFile('./config.yaml', 'utf8'));
+    config = yaml.load(await fs.readFile(configPath, 'utf8'));
   }
 
   loadConfig();
 
-  const watcher = fs.watch('./config.yaml');
+  const watcher = fs.watch(configPath);
   for await (const { eventType } of watcher) {
     if (eventType === 'change') {
       await loadConfig();
@@ -24,7 +27,11 @@ async function updateResourcesLimits(id, docker, limits) {
   console.log('update', id, limits);
 
   const maxMemory = bytes(limits['max-memory']);
-  await docker.getContainer(id).update({ Memory: maxMemory, MemorySwap: maxMemory });
+  try {
+    await docker.getContainer(id).update({ Memory: maxMemory, MemorySwap: maxMemory });
+  } catch (e) {
+    console.warn('Unable to update container memory', e);
+  }
 }
 
 async function handleContainerStart({ Id, Names }, docker) {
