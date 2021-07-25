@@ -5,5 +5,5 @@ override:
   services:
     accounting-v3:
       max-memory: 512mb
-    test:
-      max-memory: 64mb
+    logstash:
+      max-memory: 2gb
