@@ -1,0 +1,13 @@
+[Unit]
+Description=Docker limits. Adds limits, specified in config to running containers.
+After=docker.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=node /usr/lib/docker-limits/main.js
+
+[Install]
+WantedBy=multi-user.target

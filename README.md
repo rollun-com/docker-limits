@@ -23,6 +23,34 @@ override:
 
 Application watches containers, after container start, it will attach resources limitations on a container.
 
+## Install & run
+
+Make sure you have appropriate node version (specified in .nvmrc file)
+
+You cannot configure docker socket custom path for now.
+
+### Local development
+
+```
+npm install
+node main.js
+```
+
+### Production
+
+repo contains install & update scripts
+
+- install.sh - will create systemd service, enable it to run on startup and starts it
+- update.sh - fetches the latest update from repository and restarts service
+
+IMPORTANT: after you first installed service, you can delete original directory with service.
+update script must be run from directory, where service is installed by 
+
+install directly from git repo
+```
+curl -s http://127.0.0.1:8080/install.sh | bash
+```
+
 ## TODO
 
 Add auto-deploy
