@@ -7,3 +7,5 @@ override:
       max-memory: 512mb
     logstash:
       max-memory: 2gb
+    rollunnet-php:
+      max-memory: 4gb
