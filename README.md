@@ -45,12 +45,12 @@ repo contains install & update scripts
 
 to install service run
 ```shell
-curl -s https://raw.githubusercontent.com/rollun-com/docker-limits/master/install.sh | bash
+curl -s https://raw.githubusercontent.com/rollun-com/devops-docker-limits/master/install.sh | bash
 ```
 
 to update service run
 ```shell
-curl -s https://raw.githubusercontent.com/rollun-com/docker-limits/master/update.sh | bash
+curl -s https://raw.githubusercontent.com/rollun-com/devops-docker-limits/master/update.sh | bash
 ```
 
 ## TODO
