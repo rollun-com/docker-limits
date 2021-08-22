@@ -1,4 +1,4 @@
-git clone https://github.com/rollun-com/docker-limits.git /usr/lib/docker-limits
+git clone https://github.com/rollun-com/devops-docker-limits.git /usr/lib/docker-limits
 
 npm i --prefix /usr/lib/docker-limits
 
