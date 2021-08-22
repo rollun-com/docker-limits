@@ -1,0 +1,17 @@
+name: Deploy
+
+on: push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+    - name: deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: "host1,host2,host3"
+        username: "root"
+        key: ${{ secrets.CI_CD_SSH_KEY }}
+        script: curl -s https://raw.githubusercontent.com/rollun-com/devops-docker-limits/master/update.sh | bash
