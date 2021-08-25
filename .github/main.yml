@@ -4,14 +4,16 @@ on: push
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
     - name: deploy
       uses: appleboy/ssh-action@master
       with:
-        host: "host1,host2,host3"
+        # 49.12.107.139 - hetzner-first
+        # 165.227.13.162 - do-sfo-01
+        # 88.99.186.92 - hetzner-03
+        host: "49.12.107.139,165.227.13.162,88.99.186.92"
         username: "root"
         key: ${{ secrets.CI_CD_SSH_KEY }}
         script: curl -s https://raw.githubusercontent.com/rollun-com/devops-docker-limits/master/update.sh | bash
