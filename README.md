@@ -52,7 +52,3 @@ to update service run
 ```shell
 curl -s https://raw.githubusercontent.com/rollun-com/devops-docker-limits/master/update.sh | bash
 ```
-
-## TODO
-
-Add auto-deploy
