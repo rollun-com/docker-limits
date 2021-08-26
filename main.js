@@ -28,6 +28,7 @@ async function updateResourcesLimits(id, docker, limits) {
 
   const maxMemory = bytes(limits['max-memory']);
   try {
+    // set Memory and MemorySwap to the same value to prevent container from using swap
     await docker.getContainer(id).update({ Memory: maxMemory, MemorySwap: maxMemory });
   } catch (e) {
     console.warn('Unable to update container memory', e);
