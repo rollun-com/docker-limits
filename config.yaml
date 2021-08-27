@@ -9,3 +9,5 @@ override:
       max-memory: 2gb
     rollunnet-php:
       max-memory: 4gb
+    mws-inv-php:
+      max-memory: 2gb
