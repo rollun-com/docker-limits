@@ -6,3 +6,4 @@ cp /usr/lib/docker-limits/systemd-service/docker-limits.service /etc/systemd/sys
 
 systemctl daemon-reload
 service docker-limits start
+systemctl docker-limits enable
