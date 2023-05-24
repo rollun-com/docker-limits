@@ -1,6 +1,7 @@
 defaults:
   services:
     max-memory: 1gb
+    max-cpus: 0.5
 override:
   services:
     accounting-v3:
@@ -9,5 +10,6 @@ override:
       max-memory: 2gb
     rollunnet-php:
       max-memory: 4gb
+      max-cpus: 2
     mws-inv-php:
       max-memory: 2gb

@@ -11,7 +11,7 @@ let config;
 async function setupConfig() {
   const loadConfig = async () => {
     config = yaml.load(await fs.readFile(configPath, 'utf8'));
-  }
+  };
 
   loadConfig();
 
@@ -26,10 +26,16 @@ async function setupConfig() {
 async function updateResourcesLimits(id, docker, limits) {
   console.log('update', id, limits);
 
-  const maxMemory = bytes(limits['max-memory']);
+  const maxMemory = bytes(limits.maxMemory);
   try {
     // set Memory and MemorySwap to the same value to prevent container from using swap
-    await docker.getContainer(id).update({ Memory: maxMemory, MemorySwap: maxMemory });
+    await docker.getContainer(id).update({
+      Memory: maxMemory,
+      MemorySwap: maxMemory,
+      // https://docs.docker.com/config/containers/resource_constraints/
+      CpuPeriod: 100000, // period to measure limit
+      CpuQuota: limits.maxCpus * 100000, // amount of CPU available per period
+    });
   } catch (e) {
     console.warn('Unable to update container memory', e);
   }
@@ -38,7 +44,15 @@ async function updateResourcesLimits(id, docker, limits) {
 async function handleContainerStart({ Id, Names }, docker) {
   console.log(Id, Names);
   const name = Names[0].slice(1);
-  const limits = config.override.services[name] || config.defaults.services;
+  const limits = {
+    maxMemory:
+      config.override.services[name]?.['max-memory'] ||
+      config.defaults.services?.['max-memory'],
+    maxCpus: +(
+      config.override.services[name]?.['max-cpus'] ||
+      config.defaults.services?.['max-cpus']
+    ),
+  };
   await updateResourcesLimits(Id, docker, limits);
 }
 
@@ -47,8 +61,8 @@ async function main() {
 
   let docker;
   const m = monitor({
-    onContainerUp: container => handleContainerStart(container, docker),
-    onContainerDown: () => {}
+    onContainerUp: (container) => handleContainerStart(container, docker),
+    onContainerDown: () => {},
   });
   docker = m.docker;
 }

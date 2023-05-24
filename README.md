@@ -13,10 +13,12 @@ Example
 defaults:
   service:
     max-memory: 4G # if set, service container will be killed, if limit is breached
+    max-cpus: 1
 override:
   service:
     - name: accounting-v3 # name of service in D2C
       max-memory: 1G
+      max-cpus: 0.5
 ```
 
 ## Architecture overview
