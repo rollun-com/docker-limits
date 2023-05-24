@@ -13,10 +13,9 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         # 49.12.211.84 - https://panel.rollun.net/hosts/hetzner-01-test
-        # 5.161.148.140 - https://panel.rollun.net/hosts/hetzner-us-01
         # 88.99.186.92 - https://panel.rollun.net/hosts/hetzner-03
         # 5.75.224.231 - https://panel.rollun.net/hosts/rollun-crm
-        host: "49.12.211.84,5.161.148.140,88.99.186.92,5.75.224.231"
+        host: "49.12.211.84,88.99.186.92,5.75.224.231"
         username: "root"
         key: ${{ secrets.CI_CD_SSH_KEY }}
         script: |
