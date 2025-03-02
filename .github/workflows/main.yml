@@ -15,7 +15,8 @@ jobs:
         # 49.12.211.84 - https://panel.rollun.net/hosts/hetzner-01-test
         # 88.99.186.92 - https://panel.rollun.net/hosts/hetzner-03
         # 5.75.224.231 - https://panel.rollun.net/hosts/rollun-crm
-        host: "49.12.211.84,88.99.186.92,5.75.224.231"
+        # 5.161.223.70 - https://panel.rollun.net/hosts/selenoid-asburn
+        host: "49.12.211.84,88.99.186.92,5.75.224.231,5.161.223.70"
         username: "root"
         key: ${{ secrets.CI_CD_SSH_KEY }}
         script: |
