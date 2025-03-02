@@ -5,7 +5,7 @@ defaults:
 override:
   services:
     accounting-v3:
-      max-memory: 512mb
+      max-memory: 1gb
     logstash:
       max-memory: 2gb
     rollunnet-php:
